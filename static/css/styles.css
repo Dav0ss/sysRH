@@ -1,0 +1,14 @@
+
+
+
+body {
+    color:black;
+    font-family: sans-serif;
+    font-size: 10;
+    background-color: darkgray;
+}
+
+header {
+    border: 2px solid brown;
+    padding: 30px;
+}
