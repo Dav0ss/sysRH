@@ -7,8 +7,34 @@ body {
     font-size: 10;
     background-color: darkgray;
 }
-
-header {
-    border: 2px solid brown;
-    padding: 30px;
+/* estilo para la barra de navegacion  */
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: burlywood;
+    border-bottom: 2px solid #444;
+}
+/* alineacion de elementos de la lista alineados a la izquierda */
+.navbar li {
+    margin-right: 5px;
+}
+/* empujar elemento de la clase a derecha */
+.navbar .right {
+    margin-left: auto;
+}
+/* estilo para los elementos de la lista  */
+.navbar li {
+    padding: 20px 10px;
+}
+/* estilo para los enlaces  */
+.navbar li a {
+    text-decoration: none;
+    color:white;
+    font-weight: bolt;
+    transition: color 0.3s ease;
+}
+.navbar li a:hover {
+    color: #ff9800;
 }
