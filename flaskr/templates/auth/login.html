@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
-    <div>
-    <h3>Acceso a Plataforma</h3>
-        <div>
-            <label for="username">Usuario</label><br>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="userpass">Contrasenha</label><br>
-            <input type="text" id="userpass" name="username"><br><br>
-        </div>
-
-        <div>
-            <input type="submit" value="Submit">        
-        </div>
-    </div>
+    <form method="POST">
+      <div class="login-container">
+        <h2>ACCESO A PLATAFORMA</h2>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Iniciar sesión</button>
+      </div>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 </body>
 </html>

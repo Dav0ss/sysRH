@@ -1,7 +1,25 @@
-from flask import Blueprint, render_template, session, url_for, redirect
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 
-bp = Blueprint('auth', __name__, url_prefix='/auth')
+auth_bp = Blueprint('auth', __name__, template_folder='templates')
 
-@bp.route('/login')
+@auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    return 'Login page'
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Simulación de autenticación
+        if username == 'admin' and password == 'password':
+            session['user'] = username  # Guarda el usuario en la sesión
+            flash('Inicio de sesión exitoso', 'success')
+            return redirect(url_for('index'))
+        else:
+            flash('Usuario o contraseña incorrectos', 'danger')
+    
+    return render_template('auth/login.html')
+
+@auth_bp.route('/logout')
+def logout():
+    session.pop('user', None)
+    flash('Has cerrado sesión', 'info')
+    return redirect(url_for('auth.login'))
