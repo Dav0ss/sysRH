@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
+<div class="container">
+  <div class="banner-container">
+    <h1>SysRH</h1>
+    <p>Tu sistema de gestión de talento humano; eficiente, minimalista y fácil de usar!</p>
+  </div>
+  <div>
     <form method="POST">
       <div class="login-container">
         <h2>ACCESO A PLATAFORMA</h2>
@@ -26,5 +32,7 @@
         </ul>
       {% endif %}
     {% endwith %}
+  </div>
+</div>
 </body>
 </html>

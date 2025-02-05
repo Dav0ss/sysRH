@@ -12,7 +12,7 @@ def create_app():
     @app.route('/')
     def index():
         if 'user' in session:
-            return render_template('blog/index.html', user=session['user'])
+            return render_template('base.html', user=session['user'])
         return redirect(url_for('auth.login'))
 
     return app

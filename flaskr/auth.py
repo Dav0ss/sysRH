@@ -23,3 +23,4 @@ def logout():
     session.pop('user', None)
     flash('Has cerrado sesión', 'info')
     return redirect(url_for('auth.login'))
+
